@@ -1,0 +1,24 @@
+this content was produce by me rahul
+
+
+
+
+
+fprintf(); and fscanf() for files 
+
+fputc
+fputs
+fgetc
+fgets
+
+
+
+
+
+
+r = Opens an existing text file for reading 
+w = Opens a file fro writing. If it doen't exits, then a new file is created 
+    Writing starts from the beginning of the file.
+a = Opens a file for writing append mode. If doesnt exits create a new file 
+    The program will start appending the content 
+
