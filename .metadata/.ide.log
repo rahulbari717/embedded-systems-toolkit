@@ -851,3 +851,21 @@
 2025-11-06 14:11:35,979 [INFO] ApiDb:452 - User favorites MCUs=[]
 2025-11-06 14:11:35,981 [INFO] ApiDb:448 - Save user favorites file /home/lenovo/.stm32cubeide/favorites.boards.txt: 0 item(s)
 2025-11-06 14:11:35,981 [INFO] ApiDb:452 - User favorites Boards=[]
+2025-11-06 14:35:24,387 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
+2025-11-06 14:35:26,304 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2025-11-06 14:35:27,809 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
+2025-11-06 14:36:27,731 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2025-11-06 16:21:25,764 [INFO] WebApp:194 - Connection lost
+2025-11-06 16:21:34,906 [INFO] WebApp:191 - Connection restablished
+2025-11-06 16:24:04,907 [INFO] WebApp:194 - Connection lost
+2025-11-06 16:24:18,288 [INFO] WebApp:191 - Connection restablished
+2025-11-06 16:47:00,368 [INFO] WebApp:194 - Connection lost
+2025-11-06 16:47:10,110 [INFO] WebApp:191 - Connection restablished
+2025-11-06 18:05:52,792 [INFO] WebApp:194 - Connection lost
+2025-11-06 18:07:56,887 [INFO] WebApp:191 - Connection restablished
+2025-11-06 18:32:57,072 [INFO] WebApp:194 - Connection lost
+2025-11-06 18:33:07,311 [INFO] WebApp:191 - Connection restablished
+2025-11-06 20:44:52,395 [INFO] WebApp:194 - Connection lost
+2025-11-06 21:01:43,585 [INFO] WebApp:191 - Connection restablished
+2025-11-06 21:01:47,446 [INFO] WebApp:194 - Connection lost
+2025-11-06 21:01:47,849 [INFO] WebApp:191 - Connection restablished
