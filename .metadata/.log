@@ -228,3 +228,24 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2025-11-25 11:17:27.414
 !MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-11-25 11:27:37.387
+!MESSAGE Indexed 'stm32f4xx_drivers' (3 sources, 56 headers) in 0.67 sec: 2,102 declarations; 3,017 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.039%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-11-25 11:30:29.414
+!MESSAGE Indexed 'stm32f4xx_drivers' (3 sources, 56 headers) in 0.524 sec: 2,102 declarations; 3,017 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.039%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2025-11-25 16:46:17.816
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2025-11-25 16:46:56.804
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2025-11-25 17:05:24.538
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2025-11-25 18:27:41.373
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2025-11-25 18:38:54.362
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8

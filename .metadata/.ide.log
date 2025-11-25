@@ -375,3 +375,14 @@
 2025-11-25 11:15:30,448 [INFO] ApiDb:448 - Save user favorites file /home/lenovo/.stm32cubeide/favorites.boards.txt: 0 item(s)
 2025-11-25 11:15:30,449 [INFO] ApiDb:452 - User favorites Boards=[]
 2025-11-25 11:17:42,919 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2025-11-25 13:18:42,119 [INFO] WebApp:194 - Connection lost
+2025-11-25 13:18:57,265 [INFO] WebApp:191 - Connection restablished
+2025-11-25 13:20:00,914 [INFO] WebApp:194 - Connection lost
+2025-11-25 13:50:38,960 [INFO] WebApp:191 - Connection restablished
+2025-11-25 14:11:20,179 [INFO] WebApp:194 - Connection lost
+2025-11-25 14:15:37,087 [INFO] WebApp:191 - Connection restablished
+2025-11-25 15:57:02,317 [INFO] WebApp:194 - Connection lost
+2025-11-25 15:57:52,840 [INFO] WebApp:191 - Connection restablished
+2025-11-25 15:57:54,749 [INFO] WebApp:194 - Connection lost
+2025-11-25 16:06:39,173 [INFO] WebApp:191 - Connection restablished
+2025-11-25 16:46:16,801 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connect timed out
