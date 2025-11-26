@@ -9,9 +9,6 @@
 
 #include <stm32f446xx.h>
 
-#define LOW 			DISABLE
-#define BTN_PRESSED 	LOW
-
 void delay(void){
 	for(int i=0; i<500000; i++);
 }

@@ -189,6 +189,22 @@ typedef struct
 } RCC_RegDef_t;
 
 /*
+ * Peripheral register definition structure for SPI
+ */
+typedef struct
+{
+    volatile uint32_t CR1;          /* SPI control register 1,                     Address offset: 0x00 */
+    volatile uint32_t CR2;          /* SPI control register 2,                     Address offset: 0x04 */
+    volatile uint32_t SR;           /* SPI status register,                        Address offset: 0x08 */
+    volatile uint32_t DR;           /* SPI data register,                          Address offset: 0x0C */
+    volatile uint32_t CRCPR;        /* SPI CRC polynomial register,                Address offset: 0x10 */
+    volatile uint32_t RXCRCR;       /* SPI RX CRC register,                        Address offset: 0x14 */
+    volatile uint32_t TXCRCR;       /* SPI TX CRC register,                        Address offset: 0x18 */
+    volatile uint32_t I2SCFGR;      /* SPI_I2S configuration register,             Address offset: 0x1C */
+    volatile uint32_t I2SPR;        /* SPI_I2S prescaler register,                 Address offset: 0x20 */
+} SPI_RegDef_t;
+
+/*
  * Peripheral register definition structure for EXTI
  */
 typedef struct
@@ -234,6 +250,12 @@ typedef struct
 #define RCC                     ((RCC_RegDef_t*)RCC_BASEADDR)       /* RCC peripheral definition */
 #define EXTI                    ((EXTI_RegDef_t*)   EXTI_BASEADDR)        /* EXTI base address */
 #define SYSCFG                  ((SYSCFG_RegDef_t*) SYSCFG_BASEADDR) /* SYSCFG peripheral definition */
+
+#define SPI1                    ((SPI_RegDef_t*)SPI1_BASEADDR)
+#define SPI2                    ((SPI_RegDef_t*)SPI2_BASEADDR)
+#define SPI3                    ((SPI_RegDef_t*)SPI3_BASEADDR)
+#define SPI4                    ((SPI_RegDef_t*)SPI4_BASEADDR)
+
 
 /*
  * Clock Enable Macros for GPIOx peripherals
@@ -425,7 +447,70 @@ typedef struct
 #define GPIO_PIN_SET            SET
 #define GPIO_PIN_RESET          RESET
 
+#define FLAG_RESET				RESET
+#define FLAG_SET				SET
+
+#define LOW 			DISABLE
+#define BTN_PRESSED 	LOW
+
+/*
+ * Bit position definitions of SPI peripheral (CR1 register)
+ */
+#define SPI_CR1_CPHA        0
+#define SPI_CR1_CPOL        1
+#define SPI_CR1_MSTR        2
+#define SPI_CR1_BR          3
+#define SPI_CR1_SPE         6
+#define SPI_CR1_LSBFIRST    7
+#define SPI_CR1_SSI         8
+#define SPI_CR1_SSM         9
+#define SPI_CR1_RXONLY      10
+#define SPI_CR1_DFF         11
+#define SPI_CR1_CRCNEXT     12
+#define SPI_CR1_CRCEN       13
+#define SPI_CR1_BIDIOE      14
+#define SPI_CR1_BIDIMODE    15
+
+/*
+ * Bit position definitions of SPI peripheral (CR2 register)
+ */
+#define SPI_CR2_RXDMAEN     0
+#define SPI_CR2_TXDMAEN     1
+#define SPI_CR2_SSOE        2
+#define SPI_CR2_FRF         4
+#define SPI_CR2_ERRIE       5
+#define SPI_CR2_RXNEIE      6
+#define SPI_CR2_TXEIE       7
+
+/*
+ * Bit position definitions of SPI peripheral (SR register)
+ */
+#define SPI_SR_RXNE         0
+#define SPI_SR_TXE          1
+#define SPI_SR_CHSIDE       2
+#define SPI_SR_UDR          3
+#define SPI_SR_CRCERR       4
+#define SPI_SR_MODF         5
+#define SPI_SR_OVR          6
+#define SPI_SR_BSY          7
+#define SPI_SR_FRE          8
+
+/*
+ * Possible SPI Application states
+ */
+#define SPI_READY           0
+#define SPI_BUSY_IN_RX      1
+#define SPI_BUSY_IN_TX      2
+
+/*
+ * Possible SPI Application events
+ */
+#define SPI_EVENT_TX_CMPLT  1
+#define SPI_EVENT_RX_CMPLT  2
+#define SPI_EVENT_OVR_ERR   3
+#define SPI_EVENT_CRC_ERR   4
 
 #include <stm32f446xx_gpio_driver.h>
+#include <stm32f446xx_spi_driver.h>
 
 #endif /* INC_STM32F446XX_H_ */
