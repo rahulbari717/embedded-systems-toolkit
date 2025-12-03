@@ -8,7 +8,7 @@
 #ifndef INC_STM32F446XX_SPI_DRIVER_H_
 #define INC_STM32F446XX_SPI_DRIVER_H_
 
-#include <stm32f446xx.h>
+#include "stm32f446xx.h"
 
 /*
  * Configuration structure for SPIx peripheral
@@ -103,25 +103,6 @@ typedef struct
 #define SPI_RXNE_FLAG       (1 << SPI_SR_RXNE)
 #define SPI_BUSY_FLAG       (1 << SPI_SR_BSY)
 
-/*
- * Macros to reset SPI peripherals
- */
-
-// SPI1 Reset (APB2 Bus)
-#define SPI1_REG_RESET()       do{ (RCC->APB2RSTR |=  (1 << 12)); \
-                                    (RCC->APB2RSTR &= ~(1 << 12)); }while(0)
-
-// SPI2 Reset (APB1 Bus)
-#define SPI2_REG_RESET()       do{ (RCC->APB1RSTR |=  (1 << 14)); \
-                                    (RCC->APB1RSTR &= ~(1 << 14)); }while(0)
-
-// SPI3 Reset (APB1 Bus)
-#define SPI3_REG_RESET()       do{ (RCC->APB1RSTR |=  (1 << 15)); \
-                                    (RCC->APB1RSTR &= ~(1 << 15)); }while(0)
-
-// SPI4 Reset (APB2 Bus)
-#define SPI4_REG_RESET()       do{ (RCC->APB2RSTR |=  (1 << 13)); \
-                                    (RCC->APB2RSTR &= ~(1 << 13)); }while(0)
 
 /*
  * Bit position definitions of SPI peripheral (CR1 register)

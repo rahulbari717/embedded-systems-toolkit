@@ -207,6 +207,23 @@ typedef struct
 } SPI_RegDef_t;
 
 /*
+ * Peripheral register definition structure for I2C
+ */
+typedef struct
+{
+    volatile uint32_t CR1;          /* I2C Control register 1,                     Address offset: 0x00 */
+    volatile uint32_t CR2;          /* I2C Control register 2,                     Address offset: 0x04 */
+    volatile uint32_t OAR1;         /* I2C Own address register 1,                 Address offset: 0x08 */
+    volatile uint32_t OAR2;         /* I2C Own address register 2,                 Address offset: 0x0C */
+    volatile uint32_t DR;           /* I2C Data register,                          Address offset: 0x10 */
+    volatile uint32_t SR1;          /* I2C Status register 1,                      Address offset: 0x14 */
+    volatile uint32_t SR2;          /* I2C Status register 2,                      Address offset: 0x18 */
+    volatile uint32_t CCR;          /* I2C Clock control register,                 Address offset: 0x1C */
+    volatile uint32_t TRISE;        /* I2C TRISE register,                         Address offset: 0x20 */
+    volatile uint32_t FLTR;         /* I2C FLTR register,                          Address offset: 0x24 */
+} I2C_RegDef_t;
+
+/*
  * Peripheral register definition structure for EXTI
  */
 typedef struct
@@ -250,7 +267,7 @@ typedef struct
  * Peripheral definitions (Peripheral base addresses typecasted to xxx_RegDef_t)
  */
 #define RCC                     ((RCC_RegDef_t*)RCC_BASEADDR)       /* RCC peripheral definition */
-#define EXTI                    ((EXTI_RegDef_t*)   EXTI_BASEADDR)        /* EXTI base address */
+#define EXTI                    ((EXTI_RegDef_t*)EXTI_BASEADDR)        /* EXTI base address */
 #define SYSCFG                  ((SYSCFG_RegDef_t*) SYSCFG_BASEADDR) /* SYSCFG peripheral definition */
 
 #define SPI1                    ((SPI_RegDef_t*)SPI1_BASEADDR)
@@ -258,6 +275,53 @@ typedef struct
 #define SPI3                    ((SPI_RegDef_t*)SPI3_BASEADDR)
 #define SPI4                    ((SPI_RegDef_t*)SPI4_BASEADDR)
 
+/*
+ * Macros to reset GPIOx peripherals
+ */
+#define GPIOA_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 0)); (RCC->AHB1RSTR &= ~(1 << 0)); }while(0)
+#define GPIOB_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 1)); (RCC->AHB1RSTR &= ~(1 << 1)); }while(0)
+#define GPIOC_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 2)); (RCC->AHB1RSTR &= ~(1 << 2)); }while(0)
+#define GPIOD_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 3)); (RCC->AHB1RSTR &= ~(1 << 3)); }while(0)
+#define GPIOE_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 4)); (RCC->AHB1RSTR &= ~(1 << 4)); }while(0)
+#define GPIOF_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 5)); (RCC->AHB1RSTR &= ~(1 << 5)); }while(0)
+#define GPIOG_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 6)); (RCC->AHB1RSTR &= ~(1 << 6)); }while(0)
+#define GPIOH_REG_RESET()       do{ (RCC->AHB1RSTR |= (1 << 7)); (RCC->AHB1RSTR &= ~(1 << 7)); }while(0)
+
+/*
+ * Peripheral definitions (Peripheral base addresses typecasted to I2C_RegDef_t)
+ */
+#define I2C1                    ((I2C_RegDef_t*)I2C1_BASEADDR)
+#define I2C2                    ((I2C_RegDef_t*)I2C2_BASEADDR)
+#define I2C3                    ((I2C_RegDef_t*)I2C3_BASEADDR)
+
+/*
+ * Macros to reset SPI peripherals
+ */
+
+// SPI1 Reset (APB2 Bus)
+#define SPI1_REG_RESET()       do{ (RCC->APB2RSTR |=  (1 << 12)); \
+                                    (RCC->APB2RSTR &= ~(1 << 12)); }while(0)
+
+// SPI2 Reset (APB1 Bus)
+#define SPI2_REG_RESET()       do{ (RCC->APB1RSTR |=  (1 << 14)); \
+                                    (RCC->APB1RSTR &= ~(1 << 14)); }while(0)
+
+// SPI3 Reset (APB1 Bus)
+#define SPI3_REG_RESET()       do{ (RCC->APB1RSTR |=  (1 << 15)); \
+                                    (RCC->APB1RSTR &= ~(1 << 15)); }while(0)
+
+// SPI4 Reset (APB2 Bus)
+#define SPI4_REG_RESET()       do{ (RCC->APB2RSTR |=  (1 << 13)); \
+                                    (RCC->APB2RSTR &= ~(1 << 13)); }while(0)
+
+
+
+/*
+ * I2C Peripheral Reset Macros
+ */
+#define I2C1_REG_RESET()                do{ (RCC->APB1RSTR |= (1 << 21)); (RCC->APB1RSTR &= ~(1 << 21)); }while(0)
+#define I2C2_REG_RESET()                do{ (RCC->APB1RSTR |= (1 << 22)); (RCC->APB1RSTR &= ~(1 << 22)); }while(0)
+#define I2C3_REG_RESET()                do{ (RCC->APB1RSTR |= (1 << 23)); (RCC->APB1RSTR &= ~(1 << 23)); }while(0)
 
 /*
  * Clock Enable Macros for GPIOx peripherals
@@ -452,12 +516,13 @@ typedef struct
 #define FLAG_RESET				RESET
 #define FLAG_SET				SET
 
-#define LOW 			DISABLE
-#define BTN_PRESSED 	LOW
-
-
+#define LOW 			        DISABLE
+#define BTN_PRESSED 	        LOW
+#define HSI_CLK_VALUE           (16000000)
+#define HSE_CLK_VALUE           (8000000)
 
 #include <stm32f446xx_gpio_driver.h>
 #include <stm32f446xx_spi_driver.h>
+#include <stm32f446xx_i2c_driver.h>
 
 #endif /* INC_STM32F446XX_H_ */
