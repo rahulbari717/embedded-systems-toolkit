@@ -4,9 +4,6 @@
  *  Created on: Nov 25, 2025
  *      Author: Rahul B.
  */
-
-
-
 #include <stdio.h>
 #include <stm32f446xx.h>
 

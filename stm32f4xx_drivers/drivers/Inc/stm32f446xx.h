@@ -9,9 +9,11 @@
 #define INC_STM32F446XX_H_
 
 #include <stdint.h>
+#include <stddef.h>
+
+#define __weak __attribute__((weak))
 
 /************* Arm cortex Processor specific details ****************************************/
-
 /*
  * NVIC ISERx (Interrupt Set-Enable Registers) base addresses
  */
@@ -453,62 +455,7 @@ typedef struct
 #define LOW 			DISABLE
 #define BTN_PRESSED 	LOW
 
-/*
- * Bit position definitions of SPI peripheral (CR1 register)
- */
-#define SPI_CR1_CPHA        0
-#define SPI_CR1_CPOL        1
-#define SPI_CR1_MSTR        2
-#define SPI_CR1_BR          3
-#define SPI_CR1_SPE         6
-#define SPI_CR1_LSBFIRST    7
-#define SPI_CR1_SSI         8
-#define SPI_CR1_SSM         9
-#define SPI_CR1_RXONLY      10
-#define SPI_CR1_DFF         11
-#define SPI_CR1_CRCNEXT     12
-#define SPI_CR1_CRCEN       13
-#define SPI_CR1_BIDIOE      14
-#define SPI_CR1_BIDIMODE    15
 
-/*
- * Bit position definitions of SPI peripheral (CR2 register)
- */
-#define SPI_CR2_RXDMAEN     0
-#define SPI_CR2_TXDMAEN     1
-#define SPI_CR2_SSOE        2
-#define SPI_CR2_FRF         4
-#define SPI_CR2_ERRIE       5
-#define SPI_CR2_RXNEIE      6
-#define SPI_CR2_TXEIE       7
-
-/*
- * Bit position definitions of SPI peripheral (SR register)
- */
-#define SPI_SR_RXNE         0
-#define SPI_SR_TXE          1
-#define SPI_SR_CHSIDE       2
-#define SPI_SR_UDR          3
-#define SPI_SR_CRCERR       4
-#define SPI_SR_MODF         5
-#define SPI_SR_OVR          6
-#define SPI_SR_BSY          7
-#define SPI_SR_FRE          8
-
-/*
- * Possible SPI Application states
- */
-#define SPI_READY           0
-#define SPI_BUSY_IN_RX      1
-#define SPI_BUSY_IN_TX      2
-
-/*
- * Possible SPI Application events
- */
-#define SPI_EVENT_TX_CMPLT  1
-#define SPI_EVENT_RX_CMPLT  2
-#define SPI_EVENT_OVR_ERR   3
-#define SPI_EVENT_CRC_ERR   4
 
 #include <stm32f446xx_gpio_driver.h>
 #include <stm32f446xx_spi_driver.h>

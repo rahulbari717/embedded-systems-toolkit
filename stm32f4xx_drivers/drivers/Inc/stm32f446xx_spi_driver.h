@@ -24,6 +24,7 @@ typedef struct
     uint8_t SPI_SSM;                /* Possible values from @SPI_SSM */
 } SPI_Config_t;
 
+
 /*
  * Handle structure for SPIx peripheral
  */
@@ -31,7 +32,20 @@ typedef struct
 {
     SPI_RegDef_t *pSPIx;            /* Base address of SPIx peripheral */
     SPI_Config_t SPIConfig;         /* SPIx configuration settings */
+    uint8_t *pTxBuffer;             /* Application Tx buffer address */
+    uint8_t *pRxBuffer;             /* Application Rx buffer address */
+    uint32_t TxLen;                 /* Tx transfer length */
+    uint32_t RxLen;                 /* Rx transfer length */
+    uint8_t TxState;                /* Tx state (READY, BUSY_IN_TX, etc.) */
+    uint8_t RxState;                /* Rx state (READY, BUSY_IN_RX, etc.) */
 } SPI_Handle_t;
+
+/*
+ * Possible SPI Application states
+ */
+#define SPI_READY           0
+#define SPI_BUSY_IN_RX      1
+#define SPI_BUSY_IN_TX      2
 
 /*
  * @SPI_DeviceMode
@@ -109,6 +123,56 @@ typedef struct
 #define SPI4_REG_RESET()       do{ (RCC->APB2RSTR |=  (1 << 13)); \
                                     (RCC->APB2RSTR &= ~(1 << 13)); }while(0)
 
+/*
+ * Bit position definitions of SPI peripheral (CR1 register)
+ */
+#define SPI_CR1_CPHA        0
+#define SPI_CR1_CPOL        1
+#define SPI_CR1_MSTR        2
+#define SPI_CR1_BR          3
+#define SPI_CR1_SPE         6
+#define SPI_CR1_LSBFIRST    7
+#define SPI_CR1_SSI         8
+#define SPI_CR1_SSM         9
+#define SPI_CR1_RXONLY      10
+#define SPI_CR1_DFF         11
+#define SPI_CR1_CRCNEXT     12
+#define SPI_CR1_CRCEN       13
+#define SPI_CR1_BIDIOE      14
+#define SPI_CR1_BIDIMODE    15
+
+/*
+ * Bit position definitions of SPI peripheral (CR2 register)
+ */
+#define SPI_CR2_RXDMAEN     0
+#define SPI_CR2_TXDMAEN     1
+#define SPI_CR2_SSOE        2
+#define SPI_CR2_FRF         4
+#define SPI_CR2_ERRIE       5
+#define SPI_CR2_RXNEIE      6
+#define SPI_CR2_TXEIE       7
+
+/*
+ * Bit position definitions of SPI peripheral (SR register)
+ */
+#define SPI_SR_RXNE         0
+#define SPI_SR_TXE          1
+#define SPI_SR_CHSIDE       2
+#define SPI_SR_UDR          3
+#define SPI_SR_CRCERR       4
+#define SPI_SR_MODF         5
+#define SPI_SR_OVR          6
+#define SPI_SR_BSY          7
+#define SPI_SR_FRE          8
+
+/*
+ * Possible SPI Application events
+ */
+#define SPI_EVENT_TX_CMPLT  1
+#define SPI_EVENT_RX_CMPLT  2
+#define SPI_EVENT_OVR_ERR   3
+#define SPI_EVENT_CRC_ERR   4
+
 /******************************************************************************************
  *                           APIs supported by this driver
  *             For more information about the APIs, check the function definitions
@@ -151,15 +215,10 @@ void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 void SPI_SSIConfig(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 void SPI_SSOEConfig(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 uint8_t SPI_GetFlagStatus(SPI_RegDef_t *pSPIx, uint32_t FlagName);
-void SPI_ClearOVRFlag(SPI_RegDef_t *pSPIx);
-void SPI_CloseTransmission(SPI_Handle_t *pSPIHandle);
-void SPI_CloseReception(SPI_Handle_t *pSPIHandle);
 
 /*
  * Application callback
  */
 void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle, uint8_t AppEv);
-
-
 
 #endif /* INC_STM32F446XX_SPI_DRIVER_H_ */
