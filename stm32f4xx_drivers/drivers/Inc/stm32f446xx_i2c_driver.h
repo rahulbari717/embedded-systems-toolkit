@@ -194,6 +194,12 @@ typedef struct
 #define I2C_FLTR_DNF                    0
 #define I2C_FLTR_ANOFF                  4
 
+#define I2C_ERROR_BERR  3
+#define I2C_ERROR_ARLO  4
+#define I2C_ERROR_AF    5
+#define I2C_ERROR_OVR   6
+#define I2C_ERROR_TIMEOUT 7
+
 /******************************************************************************************
  *                           APIs supported by this driver
  *             For more information about the APIs, check the function definitions
@@ -220,7 +226,7 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t
  * Data Send and Receive with Interrupt
  */
 uint8_t I2C_MasterSendDataIT(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr);
-uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t Len, uint8_t SlaveAddr, uint8_t Sr);
+uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr);
 
 void I2C_CloseReceiveData(I2C_Handle_t *pI2CHandle);
 void I2C_CloseSendData(I2C_Handle_t *pI2CHandle);
@@ -233,16 +239,15 @@ uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2C);
  */
 void I2C_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
 void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
-// void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle);
-// void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle);
+void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle);
+void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle);
 
 /*
  * Other Peripheral Control APIs
  */
 void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
 uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
-// void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
-// void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
+void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
 
 // void I2C_SlaveEnableDisableCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
 
