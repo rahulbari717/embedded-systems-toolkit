@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "functional": "c"
+        "functional": "c",
+        "stm32f446xx_usart_driver.h": "c",
+        "stm32f446xx.h": "c",
+        "stm32f446xx_rcc_driver.h": "c"
     }
 }

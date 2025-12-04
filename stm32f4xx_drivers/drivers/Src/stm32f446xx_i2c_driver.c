@@ -7,15 +7,14 @@
 
 #include "stm32f446xx.h" 
 
-uint16_t AHB_Prescaler[] = {2,4,8,16,64,128,256,512};
-uint8_t APB_Prescaler[] = {2,4,8,16}; 
-
 /* ----------- STATIC HELPER FUNCTION PROTOTYPES ----------- */
 static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx); 
 static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx); 
 static void I2C_ExecuteAddressPhaseWrite(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr);
 static void I2C_ExecuteAddressPhaseRead(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr);
 static void I2C_ClearADDRFlag(I2C_RegDef_t *pI2Cx); 
+static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle);
+static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle);
 
 /*********************************************************************
  * @fn              - I2C_GenerateStartCondition
@@ -138,67 +137,7 @@ void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi)
     }
 }
 
-/*********************************************************************
- * @fn              - RCC_GetPLLOutputClock
- ********************************************************************/
-uint32_t RCC_GetPLLOutputClock(void)
-{
-    uint32_t pllclk, pll_m, pll_n, pll_p;
-    uint32_t temp;
 
-    temp = RCC->PLLCFGR;
-
-    pll_m = temp & 0x3F;
-    pll_n = (temp >> 6) & 0x1FF;
-    pll_p = ((temp >> 16) & 0x3) + 1;
-    pll_p = pll_p * 2; // actual P division factor
-
-    uint32_t clk_src = (temp >> 22) & 0x1;
-
-    if(clk_src == 0)
-    {
-        pllclk = HSI_CLK_VALUE;
-    }
-    else
-    {
-        pllclk = HSE_CLK_VALUE;
-    }
-
-    return (pllclk / pll_m) * pll_n / pll_p;
-}
-
-/*********************************************************************
- * @fn              - RCC_GetPCLK1Value
- ********************************************************************/
-uint32_t RCC_GetPCLK1Value(void)
-{
-    uint32_t systemClk = 0, pclk1;
-    uint32_t clksrc, temp, ahbp, apb1p;
-
-    /* Get system clock source */
-    clksrc = (RCC->CFGR >> 2) & 0x3;
-
-    if(clksrc == 0)
-        systemClk = HSI_CLK_VALUE;
-    else if(clksrc == 1)
-        systemClk = HSE_CLK_VALUE;
-    else if(clksrc == 2)
-        systemClk = RCC_GetPLLOutputClock();
-
-    /* Get AHB prescaler */
-    temp = (RCC->CFGR >> 4) & 0xF;
-    if(temp < 8) ahbp = 1;
-    else ahbp = AHB_Prescaler[temp - 8];
-
-    /* Get APB1 prescaler */
-    temp = (RCC->CFGR >> 10) & 0x7;
-    if(temp < 4) apb1p = 1;
-    else apb1p = APB_Prescaler[temp - 4];
-
-    pclk1 = (systemClk / ahbp) / apb1p;
-
-    return pclk1;
-}
 
 /*********************************************************************
  * @fn              - I2C_Init
@@ -741,7 +680,7 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle)
 	{
 		// ADDR flag is set
 		// Clear ADDR flag
-		I2C_ClearADDRFlag(pI2CHandle);
+		I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
 	}
 
 	temp3 = pI2CHandle->pI2Cx->SR1 & (1 << I2C_SR1_BTF);
@@ -960,4 +899,68 @@ void I2C_SlaveSendData(I2C_RegDef_t *pI2C, uint8_t data)
 uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2C)
 {
 	return (uint8_t)pI2C->DR;
+}
+
+#include "stm32f446xx_i2c_driver.h"
+
+/********************************************************************
+ * @fn      - I2C_MasterHandleTXEInterrupt
+ * @brief   - Handles TXE (Transmit buffer empty) interrupt
+ * @param[in]- pI2CHandle : Pointer to I2C handle
+ * @return  - None
+ ********************************************************************/
+static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle) {
+    if (pI2CHandle->TxLen > 0) {
+        // Load data into DR (Data Register)
+        pI2CHandle->pI2Cx->DR = *(pI2CHandle->pTxBuffer);
+        pI2CHandle->pTxBuffer++;
+        pI2CHandle->TxLen--;
+    }
+
+    // If all data transmitted
+    if (pI2CHandle->TxLen == 0) {
+        // Disable TXEIE interrupt
+        pI2CHandle->pI2Cx->CR2 &= ~(I2C_CR2_ITBUFEN);
+        // Generate Stop condition if required
+        if (pI2CHandle->Sr == I2C_DISABLE_SR) {
+            pI2CHandle->pI2Cx->CR1 |= I2C_CR1_STOP;
+        }
+        // Reset handle state
+        pI2CHandle->TxBusy = I2C_READY;
+        // Application callback: notify transmission complete
+        I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_TX_CMPLT);
+    }
+}
+
+/********************************************************************
+ * @fn      - I2C_MasterHandleRXNEInterrupt
+ * @brief   - Handles RXNE (Receive buffer not empty) interrupt
+ * @param[in]- pI2CHandle : Pointer to I2C handle
+ * @return  - None
+ ********************************************************************/
+static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle) {
+    if (pI2CHandle->RxLen == 1) {
+        // Only one byte remaining, read and clear RXNE
+        *(pI2CHandle->pRxBuffer) = pI2CHandle->pI2Cx->DR;
+        pI2CHandle->RxLen--;
+    } else if (pI2CHandle->RxLen > 1) {
+        // More than one byte to read
+        *(pI2CHandle->pRxBuffer) = pI2CHandle->pI2Cx->DR;
+        pI2CHandle->pRxBuffer++;
+        pI2CHandle->RxLen--;
+    }
+
+    // If all data received
+    if (pI2CHandle->RxLen == 0) {
+        // Disable RXNE interrupt
+        pI2CHandle->pI2Cx->CR2 &= ~(I2C_CR2_ITBUFEN);
+        // Generate Stop condition if required
+        if (pI2CHandle->Sr == I2C_DISABLE_SR) {
+            pI2CHandle->pI2Cx->CR1 |= I2C_CR1_STOP;
+        }
+        // Reset handle state
+        pI2CHandle->RxBusy = I2C_READY;
+        // Application callback: notify reception complete
+        I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_RX_CMPLT); 
+    }
 }

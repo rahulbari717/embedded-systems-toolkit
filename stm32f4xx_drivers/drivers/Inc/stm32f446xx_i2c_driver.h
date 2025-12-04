@@ -36,6 +36,10 @@ typedef struct
     uint8_t         DevAddr;        /* Slave/Device address */
     uint32_t        RxSize;         /* Rx size */
     uint8_t         Sr;             /* Repeated start value */
+
+    uint8_t TxBusy;            
+    uint8_t RxBusy;            
+
 } I2C_Handle_t;
 
 /*
