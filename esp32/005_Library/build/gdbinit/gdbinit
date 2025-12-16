@@ -1,0 +1,2 @@
+source /home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/gdbinit/symbols
+source /home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/gdbinit/connect

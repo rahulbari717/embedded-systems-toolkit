@@ -1,0 +1,120 @@
+Command: /home/lenovo/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/lenovo/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/lenovo/Documents/embedded-systems-toolkit/esp32/002_Logging/build/002_Logging.elf /home/lenovo/Documents/embedded-systems-toolkit/esp32/002_Logging/build/bootloader/bootloader.elf -m '/home/lenovo/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/lenovo/esp/esp-idf/tools/idf.py'
+[0;33m--- esp-idf-monitor 1.6.0 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _invalid_pc_placeholder at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2235
+[0m
+[0;33m--- 0x40080638: call_start_cpu0 at /home/lenovo/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:25
+[0m
+[0;33m--- 0x4008103c: call_start_cpu1 at /home/lenovo/esp/esp-idf/components/esp_system/port/cpu_start.c:196
+[0m
+[0;33m--- 0x400d0f60: __esp_system_init_fn_init_efuse_check at /home/lenovo/esp/esp-idf/components/efuse/src/esp_efuse_startup.c:37
+[0m
+[0;33m--- 0x400d1088: __esp_system_init_fn_init_show_cpu_freq at /home/lenovo/esp/esp-idf/components/esp_system/startup_funcs.c:64
+[0m
+[0;33m--- 0x400d0ea0: __esp_system_init_fn_init_show_app_info at /home/lenovo/esp/esp-idf/components/esp_app_format/esp_app_desc.c:123
+[0m
+[0;33m--- 0x400d0f74: __esp_system_init_fn_init_efuse_show_app_info at /home/lenovo/esp/esp-idf/components/efuse/src/esp_efuse_startup.c:47
+[0m
+[0;33m--- 0x400d29d4: __esp_system_init_fn_init_heap at /home/lenovo/esp/esp-idf/components/heap/heap_caps_init.c:26
+[0m
+[0;33m--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40000000: _WindowOverflow4 in ROM
+[0m
+[0;33m--- 0x40000000: _WindowOverflow4 in ROM
+[0m
+[0;33m--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+--- 0x40082000: heap_caps_aligned_alloc_base at /home/lenovo/esp/esp-idf/components/heap/heap_caps_base.c:109
+[0m
+[0;33m--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+--- 0x40082000: heap_caps_aligned_alloc_base at /home/lenovo/esp/esp-idf/components/heap/heap_caps_base.c:109
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40082000: heap_caps_aligned_alloc_base at /home/lenovo/esp/esp-idf/components/heap/heap_caps_base.c:109
+--- 0x40084000: esp_mspi_pin_init at /home/lenovo/esp/esp-idf/components/spi_flash/flash_ops.c:158
+[0m
+[0;33m--- 0x40082000: heap_caps_aligned_alloc_base at /home/lenovo/esp/esp-idf/components/heap/heap_caps_base.c:109
+--- 0x40084000: esp_mspi_pin_init at /home/lenovo/esp/esp-idf/components/spi_flash/flash_ops.c:158
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40084000: esp_mspi_pin_init at /home/lenovo/esp/esp-idf/components/spi_flash/flash_ops.c:158
+--- 0x40086000: vPortTCBPreDeleteHook at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:664
+[0m
+[0;33m--- 0x40084000: esp_mspi_pin_init at /home/lenovo/esp/esp-idf/components/spi_flash/flash_ops.c:158
+--- 0x40086000: vPortTCBPreDeleteHook at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:664
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40086000: vPortTCBPreDeleteHook at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:664
+--- 0x40088000: vTaskGenericNotifyGiveFromISR at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:6230
+[0m
+[0;33m--- 0x40086000: vPortTCBPreDeleteHook at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:664
+--- 0x40088000: vTaskGenericNotifyGiveFromISR at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:6230
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x40088000: vTaskGenericNotifyGiveFromISR at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:6230
+--- 0x4008a000: align_up at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:243 (discriminator 1)
+---  (inlined by) mapping_search at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:330 (discriminator 1)
+---  (inlined by) block_locate_free at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:602 (discriminator 1)
+---  (inlined by) tlsf_malloc at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf.c:443 (discriminator 1)
+[0m
+[0;33m--- 0x40088000: vTaskGenericNotifyGiveFromISR at /home/lenovo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:6230
+--- 0x4008a000: align_up at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:243 (discriminator 1)
+---  (inlined by) mapping_search at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:330 (discriminator 1)
+---  (inlined by) block_locate_free at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:602 (discriminator 1)
+---  (inlined by) tlsf_malloc at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf.c:443 (discriminator 1)
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x4008a000: align_up at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:243 (discriminator 1)
+---  (inlined by) mapping_search at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:330 (discriminator 1)
+---  (inlined by) block_locate_free at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:602 (discriminator 1)
+---  (inlined by) tlsf_malloc at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf.c:443 (discriminator 1)
+--- 0x4008c000: spi_flash_chip_generic_yield at /home/lenovo/esp/esp-idf/components/spi_flash/spi_flash_chip_generic.c:346
+[0m
+[0;33m--- 0x4008a000: align_up at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:243 (discriminator 1)
+---  (inlined by) mapping_search at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:330 (discriminator 1)
+---  (inlined by) block_locate_free at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h:602 (discriminator 1)
+---  (inlined by) tlsf_malloc at /home/lenovo/esp/esp-idf/components/heap/tlsf/tlsf.c:443 (discriminator 1)
+--- 0x4008c000: spi_flash_chip_generic_yield at /home/lenovo/esp/esp-idf/components/spi_flash/spi_flash_chip_generic.c:346
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x4008c000: spi_flash_chip_generic_yield at /home/lenovo/esp/esp-idf/components/spi_flash/spi_flash_chip_generic.c:346
+[0m
+[0;33m--- 0x4008c000: spi_flash_chip_generic_yield at /home/lenovo/esp/esp-idf/components/spi_flash/spi_flash_chip_generic.c:346
+--- 0x40080000: _WindowOverflow4 at /home/lenovo/esp/esp-idf/components/xtensa/xtensa_vectors.S:2027
+[0m
+[0;33m--- 0x400d44f4: __esp_system_init_fn_esp_timer_init_nonos at /home/lenovo/esp/esp-idf/components/esp_timer/src/esp_timer_init.c:28
+[0m
+[0;33m--- 0x400d404c: __esp_system_init_fn_init_libc at /home/lenovo/esp/esp-idf/components/newlib/src/init.c:12
+[0m
+[0;33m--- 0x400d10cc: __esp_system_init_fn_init_brownout at /home/lenovo/esp/esp-idf/components/esp_system/startup_funcs.c:79
+[0m
+[0;33m--- 0x400d10d8: __esp_system_init_fn_init_newlib_time at /home/lenovo/esp/esp-idf/components/esp_system/startup_funcs.c:100
+[0m
+[0;33m--- 0x400d56e4: __esp_system_init_fn_init_vfs_uart at /home/lenovo/esp/esp-idf/components/esp_driver_uart/src/uart_vfs.c:1148
+[0m
+[0;33m--- 0x400d7000: __esp_system_init_fn_init_vfs_nullfs at /home/lenovo/esp/esp-idf/components/vfs/nullfs.c:322
+[0m
+[0;33m--- 0x400d6100: __esp_system_init_fn_init_vfs_console at /home/lenovo/esp/esp-idf/components/esp_vfs_console/vfs_console.c:271
+[0m
+[0;33m--- 0x400d4058: __esp_system_init_fn_init_libc_stdio at /home/lenovo/esp/esp-idf/components/newlib/src/init.c:18
+[0m
+[0;33m--- 0x400d10e4: __esp_system_init_fn_init_flash at /home/lenovo/esp/esp-idf/components/esp_system/startup_funcs.c:107
+[0m
+[0;33m--- 0x400d1000: __esp_system_init_fn_init_efuse at /home/lenovo/esp/esp-idf/components/efuse/src/esp_efuse_startup.c:158
+[0m
+[0;33m--- 0x40084e68: enable_timer_group0_for_calibration at /home/lenovo/esp/esp-idf/components/esp_hw_support/port/esp32/rtc_time.c:197
+[0m
+[0;33m--- 0x400d1f7c: esp_ipc_init at /home/lenovo/esp/esp-idf/components/esp_system/esp_ipc.c:107
+[0m
+[0;33m--- 0x400e2c48: __esp_system_init_fn_esp_security_init at /home/lenovo/esp/esp-idf/components/esp_security/src/init.c:38
+[0m
+[0;33m--- 0x400d1114: __esp_system_init_fn_init_disable_rtc_wdt at /home/lenovo/esp/esp-idf/components/esp_system/startup_funcs.c:164
+[0m
+[0m

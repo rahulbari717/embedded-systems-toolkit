@@ -67,7 +67,11 @@ idf.py --version
 ## Repository Structure
 ```
 esp32/
-├── 001_Hello_world/              # Basic LED blink using GPIO
+├── 001_Hello_world/              # Basic Hello world print on Terminal 
+├── 002_Logging/                  # Demonstration of ESP-IDF logging levels
+├── 003_Delay/                    # Basic FreeRTOS task delay using vTaskDelay
+├── 004_Structure/                # C Structures and Pass-by-Reference using Pointers
+├── 005_Library/                  # Advanced C Concepts: Function Pointers and Modular Code
 └── README.md                     # This file
 ```
 

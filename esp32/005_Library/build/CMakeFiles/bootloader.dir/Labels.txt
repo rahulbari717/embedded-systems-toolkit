@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/CMakeFiles/bootloader
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/CMakeFiles/bootloader.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/CMakeFiles/bootloader-complete.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
