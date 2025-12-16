@@ -1,20 +1,29 @@
-# Embedded Systems Toolkit
+# 🎯 STM32 Project Work
 
-Comprehensive collection of STM32 and ARM Cortex-M projects covering embedded C, peripheral drivers, FreeRTOS, DMA, and real-time systems. Complete course implementations with documented code examples.
+![Projects](https://img.shields.io/badge/Projects-20+-blue)
+![IDE](https://img.shields.io/badge/IDE-STM32CubeIDE%20v1.18-green)
+![Platform](https://img.shields.io/badge/Platform-STM32F446RE-red)
 
----
-
-## 🎯 About This Repository
-
-This repository contains hands-on implementations and practical examples for embedded systems development on STM32 microcontrollers, covering fundamental concepts to advanced topics like RTOS and DMA programming.
+Comprehensive collection of **STM32F446RE** microcontroller projects covering basics to advanced peripheral programming, **HAL drivers**, **bare-metal programming**, and custom driver development.
 
 ---
 
-## 🛠 Development Environment Setup
+## 📑 Quick Links
+- [Development Environment Setup](#development-environment-setup)
+- [Repository Structure](#repository-structure)
+- [Custom Driver Development](#custom-driver-development)
+- [Getting Started](#getting-started)
+- [Hardware Requirements](#hardware-requirements)
+- [Documentation](#documentation)
+
+---
+
+## Development Environment Setup
 
 ### STM32CubeIDE Installation (Ubuntu 24.04)
 
 **Required Version:** STM32CubeIDE 1.18.0 (Build: 24413_20250227_1633)
+
 ```bash
 # Download from ST official website
 # https://www.st.com/en/development-tools/stm32cubeide.html
@@ -36,135 +45,59 @@ stm32cubeide
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 ```
-embedded-systems-toolkit/
-│
-├── README.md
-├── LICENSE
-│
-├── 01-embedded-c-fundamentals/
-│   ├── README.md
-│   ├── basic-syntax/
-│   ├── pointers/
-│   ├── bit-manipulation/
-│   ├── structures-unions/
-│   └── volatile-const/
-│
-├── 02-arm-cortex-m4-architecture/
-│   ├── README.md
-│   ├── processor-modes/
-│   ├── stack-operations/
-│   ├── interrupts-exceptions/
-│   ├── memory-map/
-│   └── register-programming/
-│
-├── 03-peripheral-driver-development/
-│   ├── README.md
-│   ├── gpio-driver/
-│   ├── spi-driver/
-│   ├── i2c-driver/
-│   ├── uart-driver/
-│   └── interrupt-handling/
-│
-├── 04-timers-pwm-can-rtc/
-│   ├── README.md
-│   ├── timer-basics/
-│   ├── pwm-generation/
-│   ├── input-capture/
-│   ├── can-communication/
-│   ├── rtc-implementation/
-│   └── low-power-modes/
-│
-├── 05-freertos-implementation/
-│   ├── README.md
-│   ├── task-management/
-│   ├── queue-communication/
-│   ├── semaphores-mutex/
-│   ├── software-timers/
-│   ├── memory-management/
-│   └── debugging-techniques/
-│
-├── 06-dma-programming/
-│   ├── README.md
-│   ├── dma-basics/
-│   ├── memory-to-memory/
-│   ├── peripheral-to-memory/
-│   ├── dma-interrupts/
-│   └── circular-mode/
-│
-├── 07-lcd-tft-lvgl/
-│   ├── README.md
-│   ├── ltdc-configuration/
-│   ├── lcd-interfacing/
-│   ├── lvgl-basics/
-│   ├── touchscreen/
-│   └── gui-projects/
-│
-└── projects/
-    ├── integrated-projects/
-    ├── real-world-applications/
-    └── course-assignments/
+stm32/
+├── 001_Hello_world/                      # Basic LED blink (bare-metal)
+├── 002_Operational_modes/                # Processor modes exploration
+├── 003_Access_level/                     # Privileged vs unprivileged access
+├── 004_Fault_gen/                        # Fault generation and handling
+├── 005_Task_schedular/                   # Simple round-robin scheduler
+├── 006_baremetal_embedded_c/             # Bare-metal programming
+├── 006_Debuging/                         # Debugging techniques
+├── 007_HAL/                              # HAL library introduction
+├── 008_UART_HAL/                         # UART polling mode
+├── 009_UART_HAL_IT/                      # UART interrupt mode
+├── 010_HSE_CLK_8M/                       # External 8MHz HSE clock
+├── 011_PLL_SYSCLK/                       # PLL clock configuration
+├── 012_PLL_SYSCLK_HSE/                   # PLL with HSE source
+├── 013_TIM6_100ms/                       # Timer 6 polling mode
+├── 014_TIM6_100ms_IT/                    # Timer 6 interrupt mode
+├── 015_CAN_LoopBack_Mode/                # CAN loopback testing
+├── 016_Sleep_ON_exit_TIM6_100ms_IT2/     # Sleep-on-exit mode
+├── 017_RTC_Date_Time/                    # Real-time clock
+├── 018_GPIO_HAL_DMA/                     # DMA with GPIO (polling)
+├── 019_GPIO_HAL_DMA_IT/                  # DMA with interrupts
+├── 01-embedded-c-fundamentals/           # C programming basics
+└── stm32f4xx_drivers/                    # Custom peripheral drivers
 ```
 
 ---
 
-## 📚 Topics Covered
+## Custom Driver Development
+### stm32f4xx_drivers/
 
-### 1️⃣ Embedded C Fundamentals
-- C language basics for embedded systems
-- Pointers and memory management
-- Bit manipulation techniques
-- Structures and unions
-- Volatile and const keywords
+Complete peripheral driver suite implementing register-level programming:
 
-### 2️⃣ ARM Cortex-M4 Architecture
-- Processor architecture and modes
-- Stack operations (MSP/PSP)
-- Exception and interrupt handling
-- Memory mapping
-- Register-level programming
+### Driver Implementation:
 
-### 3️⃣ Peripheral Driver Development
-- GPIO driver implementation
-- SPI protocol and driver
-- I²C protocol and driver
-- UART/USART communication
-- Interrupt handling
+- stm32f446xx_gpio_driver.c - GPIO configuration and control
+- stm32f446xx_spi_driver.c - SPI master/slave communication
+- stm32f446xx_i2c_driver.c - I2C protocol implementation
+- stm32f446xx_usart_driver.c - USART serial communication
+- stm32f446xx_rcc_driver.c - Clock control and configuration
 
-### 4️⃣ Timers, PWM, CAN & RTC
-- Timer configurations
-- PWM generation
-- Input capture techniques
-- CAN bus communication
-- RTC implementation
-- Low-power modes
+### Example Applications:
+```
+drivers/Src/
+├── 001_ledToggle.c              # GPIO driver demonstration
+├── 004_spi_tx_testing.c         # SPI loopback test
+├── 005_spi_txonly_esp32rx.c     # SPI communication with ESP32
+├── 006_i2c_master_tx.c          # I2C master mode transmission
+└── 008_DMA_main_m2p_UART2.c     # DMA memory-to-peripheral UART
+```
 
-### 5️⃣ FreeRTOS Implementation
-- Task management and scheduling
-- Queue-based communication
-- Semaphores and mutexes
-- Software timers
-- Memory management
-- Debugging with SEGGER SystemView
-
-### 6️⃣ DMA Programming
-- DMA controller basics
-- Memory-to-memory transfers
-- Peripheral-to-memory operations
-- Interrupt handling
-- Circular mode implementation
-
-### 7️⃣ LCD-TFT & LVGL
-- LTDC configuration
-- LCD interfacing
-- LVGL graphics library
-- Touchscreen integration
-- GUI development
-
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - STM32CubeIDE 1.18.0 or later
@@ -186,12 +119,21 @@ cd embedded-systems-toolkit
 
 ---
 
-## 🛠 Hardware Requirements
+## Hardware Requirements
 
-- **Development Boards:** STM32F407 Discovery, STM32F446RE Nucleo
+- **Development Boards:** STM32F446RE Nucleo
 - **Debugger:** ST-Link V2 or higher
-- **Tools:** Logic Analyzer, Oscilloscope, Multimeter (optional)
+- **Tools:** Logic Analyzer, Multimeter (optional)
 - **Peripherals:** Sensors, displays, communication modules
+
+---
+
+## Documentation
+
+- [STMicroelectronics Official Website](https://www.st.com/content/st_com/en.html)
+- [STM32F446RE Datasheet](https://www.st.com/resource/en/datasheet/stm32f446re.pdf)
+- [STM32F4 Reference Manual (RM0390)](https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf)
+- [STM32CubeIDE User Guide](https://www.st.com/resource/en/user_manual/um2609-stm32cubeide-user-guide-stmicroelectronics.pdf)
 
 ---
 
@@ -205,7 +147,7 @@ cd embedded-systems-toolkit
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
 
 ---
 
@@ -221,4 +163,4 @@ If you find this repository helpful:
 
 **Happy Embedded Programming! 🚀**
 
-*Last Updated: November 2025*
+*Last Updated: December 2025*

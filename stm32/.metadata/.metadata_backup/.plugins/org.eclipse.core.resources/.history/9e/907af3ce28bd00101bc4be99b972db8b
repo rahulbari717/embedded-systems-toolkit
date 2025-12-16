@@ -1,0 +1,87 @@
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @author         : Rahul B.
+ * @brief          : Main program body
+ ******************************************************************************
+
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+#include <main.h>
+
+void task1_handler(void);
+void task2_handler(void);
+void task3_handler(void);
+void task4_handler(void);
+void init_systick_timer(uint32_t tick_hz);
+__attribute__((naked)) void init_schedular_stack(uint32_t sched_top_of_stack);
+
+
+int main(void)
+{
+	init_schedular_stack(SCHED_STACK_START);
+	init_systick_timer(TICK_HZ);
+	printf("task  \n");
+	/* Loop forever */
+	for(;;);
+}
+
+void task1_handler(void){
+	while(1){
+		printf("This is task 1 \n");
+	}
+}
+
+void task2_handler(void){
+	while(1){
+		printf("This is task 2 \n");
+	}
+}
+
+void task3_handler(void){
+	while(1){
+		printf("This is task 3 \n");
+	}
+}
+
+void task4_handler(void){
+	while(1){
+		printf("This is task 4 \n");
+	}
+}
+
+void init_systick_timer(uint32_t tick_hz){
+	uint32_t *pSRVR = (uint32_t *) (0xE000E014);
+	uint32_t *pSCSR = (uint32_t *) (0xE000E010);
+
+
+	uint32_t count_value = (SYSTICK_TIM_CLK/tick_hz)-1;
+
+	// clear the value of svr
+	*pSRVR &= ~(0x00FFFFFF);
+
+	// load the value in to svr
+	*pSRVR |= count_value;
+
+	// do some settings
+	*pSCSR |= (1 << 1); // Enable Systick exception request
+	*pSCSR |= (1 << 2); // Indicate the clk source and processor clk
+
+	// enable systick
+	*pSCSR |= (1 << 0); // enable the counter
+
+}
+
+__attribute__((naked)) void init_schedular_stack(uint32_t sched_top_of_stack){
+	__asm volatile("MSR MSP, %0": :"r" (sched_top_of_stack) : );
+	__asm volatile("BX LR");
+}
+
+void SysTick_Handler(void){
+
+}
+
+
+

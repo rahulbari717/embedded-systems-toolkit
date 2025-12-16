@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="false"/>
+	<list key="searchhistory">
+		<item value="begin 3"/>
+		<item value="UASRT2"/>
+		<item value="USART2_BASE"/>
+		<item value=" base address"/>
+		<item value="spi"/>
+		<item value="sendDataIt"/>
+		<item value="ssoe"/>
+		<item value="RESET"/>
+		<item value="FLAG_RESET"/>
+		<item value="spi_handle_t"/>
+		<item value="SPI_CR1_MSTR"/>
+		<item value="Init"/>
+		<item value="Syscfg_"/>
+		<item value="SPI"/>
+		<item value="struct"/>
+	</list>
+</section>

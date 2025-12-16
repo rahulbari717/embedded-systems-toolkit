@@ -1,0 +1,10 @@
+17:10:34 **** Build of configuration Debug for project 007_HAL ****
+make -j4 all 
+arm-none-eabi-size  007_HAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9192	     16	   1640	  10848	   2a60	007_HAL.elf
+Finished building: default.size.stdout
+ 
+
+17:10:34 Build Finished. 0 errors, 0 warnings. (took 280ms)
+

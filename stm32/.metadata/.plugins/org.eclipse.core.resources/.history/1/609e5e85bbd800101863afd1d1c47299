@@ -1,0 +1,37 @@
+/*
+ * stm32f4xx_it.c
+ *
+ *  Created on: Dec 13, 2025
+ *      Author: Rahul B.
+ */
+
+
+/**
+ * @brief EXTI Line[15:10] Interrupt Handler
+ * Services the button press on PC13.
+ */
+void EXTI15_10_IRQHandler(void) {
+
+/*     // 1. Clear the EXTI pending register bit for Pin 13
+    // This MUST be the first thing done for the pin that caused the interrupt.
+    if (EXTI->PR & (1 << GPIO_PIN_NO_13)) {
+        GPIO_IRQHandling(GPIO_PIN_NO_13);
+    }
+
+    // 2. Debounce Delay: Wait for mechanical bounce to settle
+    delay_ms(50);
+
+    // 3. Clear any DMA flags from previous transfers
+    // We clear flags *before* starting a new transfer
+    DMA1->HIFCR |= (0b111101 << 16);
+
+    // 4. Re-configure NDTR and restart M0AR (optional but safe)
+    DMA1_Stream6->NDTR = len;
+    // Set M0AR again to ensure the transfer starts from the beginning of the buffer
+    DMA1_Stream6->M0AR = (uint32_t)Tx_buffer;
+
+    // 5. Enable the DMA Stream (Starts the M2P transfer)
+    DMA1_Stream6->CR |= (1 << 0);
+
+    // The ISR now exits, and the DMA handles the transfer in the background. */
+}

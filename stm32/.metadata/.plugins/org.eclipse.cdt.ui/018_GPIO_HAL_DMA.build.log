@@ -1,0 +1,10 @@
+11:37:37 **** Incremental Build of configuration Debug for project 018_GPIO_HAL_DMA ****
+make -j4 all 
+arm-none-eabi-size  018_GPIO_HAL_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10340	     16	   1744	  12100	   2f44	018_GPIO_HAL_DMA.elf
+Finished building: default.size.stdout
+ 
+
+11:37:37 Build Finished. 0 errors, 0 warnings. (took 206ms)
+

@@ -1,0 +1,18 @@
+/*
+ * led.h
+ *
+ *  Created on: Nov 9, 2025
+ *      Author: lenovo
+ */
+
+#ifndef LED_H_
+#define LED_H_
+
+#define LD1_Pin GPIO_PIN_4
+#define LD1_GPIO_Port GPIOA
+#define LD2_Pin GPIO_PIN_5
+#define LD2_GPIO_Port GPIOA
+#define LD3_Pin GPIO_PIN_6
+#define LD3_GPIO_Port GPIOA
+
+#endif /* LED_H_ */

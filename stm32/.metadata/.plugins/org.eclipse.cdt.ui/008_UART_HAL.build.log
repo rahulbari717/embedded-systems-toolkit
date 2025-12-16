@@ -1,0 +1,17 @@
+12:48:18 **** Incremental Build of configuration Debug for project 008_UART_HAL ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "008_UART_HAL.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/lenovo/Documents/embedded-systems-toolkit/008_UART_HAL/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_UART_HAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_UART_HAL.elf
+ 
+arm-none-eabi-size  008_UART_HAL.elf 
+arm-none-eabi-objdump -h -S 008_UART_HAL.elf  > "008_UART_HAL.list"
+   text	   data	    bss	    dec	    hex	filename
+   6280	     16	   1640	   7936	   1f00	008_UART_HAL.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_UART_HAL.list
+ 
+
+12:48:19 Build Finished. 0 errors, 0 warnings. (took 735ms)
+

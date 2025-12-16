@@ -1,0 +1,10 @@
+19:18:56 **** Incremental Build of configuration Debug for project 013_TIM6_100ms ****
+make -j4 all 
+arm-none-eabi-size  013_TIM6_100ms.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3560	     12	   1644	   5216	   1460	013_TIM6_100ms.elf
+Finished building: default.size.stdout
+ 
+
+19:18:57 Build Finished. 0 errors, 0 warnings. (took 143ms)
+
