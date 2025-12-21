@@ -1,8 +1,10 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f4xx_drivers
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:000_ITM_Baremetal_Hello_world,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_Hello_world Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:003,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:005,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_GPIO_Blink_HAL,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:006_Debuging
 eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:000_ITM_Baremetal_Hello_world/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_GPIO_Blink_HAL/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_Hello_world\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_Hello_world\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:003/activeLaunchMode=run

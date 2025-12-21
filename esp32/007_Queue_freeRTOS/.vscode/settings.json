@@ -1,0 +1,61 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+
+    "[c]": {
+        "editor.tabSize": 4
+    },
+    "[cpp]": {
+        "editor.tabSize": 4
+    },
+    
+    "C_Cpp.intelliSenseEngine": "default",
+    "idf.adapterTargetName": "esp32",
+    "idf.customExtraPaths": "/home/lenovo/esp_4.4.3/esp-idf/tools/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin:/home/lenovo/esp_4.4.3/esp-idf/tools/tools/xtensa-esp32s2-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32s2-elf/bin:/home/lenovo/esp_4.4.3/esp-idf/tools/tools/xtensa-esp32s3-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32s3-elf/bin:/home/lenovo/esp_4.4.3/esp-idf/tools/tools/riscv32-esp-elf/esp-2021r2-patch5-8.4.0/riscv32-esp-elf/bin:/home/lenovo/esp_4.4.3/esp-idf/tools/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/home/lenovo/esp_4.4.3/esp-idf/tools/tools/openocd-esp32/v0.11.0-esp32-20220706/openocd-esp32/bin",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/lenovo/esp_4.4.3/esp-idf/tools/tools/openocd-esp32/v0.11.0-esp32-20220706/openocd-esp32/share/openocd/scripts"
+    },
+    "idf.espIdfPath": "/home/lenovo/esp_4.4.3/esp-idf",
+    "idf.openOcdConfigs": [
+        "interface/ftdi/esp32_devkitj_v1.cfg",
+        "target/esp32.cfg"
+    ],
+    "idf.port": "/dev/ttyUSB0",
+    "idf.pythonBinPath": "python",
+    "idf.toolsPath": "/home/lenovo/esp_4.4.3/esp-idf/tools",
+    "C_Cpp.errorSquiggles": "disabled",
+    "idf.flashType": "UART",
+    "files.associations": {
+        "*.ipp": "c",
+        "system_error": "c",
+        "*.inc": "c",
+        "freertos.h": "c",
+        "esp_sleep.h": "c",
+        "nvs_cmds.h": "c",
+        "stdlib.h": "c",
+        "mpu_config.h": "c",
+        "nimble_prph.h": "c",
+        "nimble_cent.h": "c",
+        "custom_allocator.h": "c",
+        "vibration.h": "c",
+        "misc.h": "c",
+        "battery.h": "c",
+        "motors.h": "c",
+        "leds.h": "c",
+        "chrono": "c",
+        "string.h": "c",
+        "esp_debub.h": "c",
+        "forward_list": "c",
+        "list": "c",
+        "slist": "c",
+        "nimble.h": "c",
+        "esp_nimble_hci.h": "c",
+        "my_nvs_storage.h": "c",
+        "esp_bt.h": "c",
+        "wifi_connect.h": "c",
+        "mqtt.h": "c",
+        "esp_wifi.h": "c",
+        "task.h": "c"
+    }
+}

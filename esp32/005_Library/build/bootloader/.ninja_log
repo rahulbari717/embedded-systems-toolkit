@@ -119,3 +119,5 @@
 12822	14160	1765869597896473666	/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader/.bin_timestamp	272eb0847d2a87d0
 14160	14520	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	c37e93ff5390248f
 14160	14520	0	/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	c37e93ff5390248f
+25	117	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	c37e93ff5390248f
+25	117	0	/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	c37e93ff5390248f

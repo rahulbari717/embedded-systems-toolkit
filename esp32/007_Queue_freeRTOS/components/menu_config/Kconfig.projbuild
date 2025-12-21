@@ -1,0 +1,71 @@
+menu "My Custom Menu"
+
+config MY_BOOL
+    bool "select yes or no"
+
+config MY_STRING
+    string "enter a string"
+    default "hello world!"
+        help
+            this is my help text description
+
+config MY_INT
+    int "in int"
+    range 1 15
+    default 5
+
+choice MY_CHOICE
+    prompt "Select a choice"
+    default OPTION_1
+
+    config OPTION_1
+        bool "This is option 1"
+
+    config OPTION_2
+        bool "This is option 2"
+endchoice
+
+menu "WiFi Configuration"
+
+config WIFI_SSID
+    string "WiFi SSID"
+    default "Rahul"
+
+config WIFI_PASSWORD
+    string "WiFi Password"
+    default ""
+    help
+        Enter WiFi password (hidden in menuconfig)
+
+endmenu
+
+menu "LED Pin Configuration"
+config LED_PIN_1
+    int "LED Pin 1 (GPIO)"
+    range 0 39
+    default 2
+
+config LED_PIN_2
+    int "LED Pin 2 (GPIO)"
+    range 0 39
+    default 4
+
+config LED_PIN_3
+    int "LED Pin 3 (GPIO)"
+    range 0 39
+    default 0
+endmenu
+
+menu "Button Pin Configuration"
+config BUTTON_PIN_1
+    int "Button Pin 1 (GPIO)"
+    range 0 39
+    default 32
+
+config BUTTON_PIN_2
+    int "Button Pin 2 (GPIO)"
+    range 0 39
+    default 33
+endmenu
+
+endmenu

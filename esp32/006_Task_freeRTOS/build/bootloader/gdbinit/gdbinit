@@ -1,0 +1,2 @@
+source /home/lenovo/Documents/embedded-systems-toolkit/esp32/006_Task_freeRTOS/build/bootloader/gdbinit/symbols
+source /home/lenovo/Documents/embedded-systems-toolkit/esp32/006_Task_freeRTOS/build/bootloader/gdbinit/connect

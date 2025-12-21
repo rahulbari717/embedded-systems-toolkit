@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "005_Library",
-    "project_version":    "250044e-dirty",
+    "project_version":    "0b8711c-dirty",
     "project_path":       "/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library",
     "idf_path":           "/home/lenovo/esp/esp-idf",
     "build_dir":          "/home/lenovo/Documents/embedded-systems-toolkit/esp32/005_Library/build",
