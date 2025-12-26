@@ -1,10 +1,10 @@
-12:47:28 **** Incremental Build of configuration Debug for project stm32f4xx_drivers ****
-make -j4 all 
-arm-none-eabi-size  stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6612	     92	   1900	   8604	   219c	stm32f4xx_drivers.elf
-Finished building: default.size.stdout
+13:22:47 **** Clean-only build of configuration Debug for project stm32f4xx_drivers ****
+make -j4 clean 
+rm -rf ./drivers/Src/stm32f446xx_gpio_driver.cyclo ./drivers/Src/stm32f446xx_gpio_driver.d ./drivers/Src/stm32f446xx_gpio_driver.o ./drivers/Src/stm32f446xx_gpio_driver.su ./drivers/Src/stm32f446xx_i2c_driver.cyclo ./drivers/Src/stm32f446xx_i2c_driver.d ./drivers/Src/stm32f446xx_i2c_driver.o ./drivers/Src/stm32f446xx_i2c_driver.su ./drivers/Src/stm32f446xx_rcc_driver.cyclo ./drivers/Src/stm32f446xx_rcc_driver.d ./drivers/Src/stm32f446xx_rcc_driver.o ./drivers/Src/stm32f446xx_rcc_driver.su ./drivers/Src/stm32f446xx_spi_driver.cyclo ./drivers/Src/stm32f446xx_spi_driver.d ./drivers/Src/stm32f446xx_spi_driver.o ./drivers/Src/stm32f446xx_spi_driver.su ./drivers/Src/stm32f446xx_usart_driver.cyclo ./drivers/Src/stm32f446xx_usart_driver.d ./drivers/Src/stm32f446xx_usart_driver.o ./drivers/Src/stm32f446xx_usart_driver.su
+rm -rf ./Startup/startup_stm32f446retx.d ./Startup/startup_stm32f446retx.o
+rm -rf ./Src/005_spi_txonly_esp32rx.cyclo ./Src/005_spi_txonly_esp32rx.d ./Src/005_spi_txonly_esp32rx.o ./Src/005_spi_txonly_esp32rx.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+rm -rf default.size.stdout stm32f4xx_drivers.elf stm32f4xx_drivers.list stm32f4xx_drivers.map
  
 
-12:47:28 Build Finished. 0 errors, 0 warnings. (took 217ms)
+13:22:47 Build Finished. 0 errors, 0 warnings. (took 173ms)
 

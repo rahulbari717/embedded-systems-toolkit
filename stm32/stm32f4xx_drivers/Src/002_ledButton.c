@@ -3,17 +3,17 @@
  *
  *  Created on: Nov 25, 2025
  	Author: Rahul B.
- *  when button pressed led toggle otherwise stop.
+ *  when button pressed led ON otherwise stop.
  *
  */
 
 #include <stm32f446xx.h>
 
 void delay(void){
-	for(int i=0; i<500000; i++);
+	for(int i=0; i<500000/2; i++);
 }
 
-int main(){
+void init(void){
 	GPIO_Handle_t GpioLed, GpioButton;
 
 	GpioLed.pGPIOx = GPIOA;
@@ -35,10 +35,21 @@ int main(){
 	GPIO_Init(&GpioLed);
 	GPIO_Init(&GpioButton);
 
+}
+
+
+int main(){
+
+	init();
+
 	while(1){
 		if(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == BTN_PRESSED){
-			delay();
-			GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_5);
+		    // Button is pressed: Turn LED ON
+		    GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_5, GPIO_PIN_SET);
+		    delay();
+		}else{
+			// Button is NOT pressed: Turn LED OFF
+		    GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_5, GPIO_PIN_RESET);
 		}
 	}
 

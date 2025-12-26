@@ -1,0 +1,59 @@
+Command: ninja flash
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/bootloader/esp-idf/esptool_py && /home/lenovo/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/lenovo/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/bootloader/bootloader.bin
+Bootloader binary size 0x6650 bytes. 0x9b0 bytes (9%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/008_spi-rx.c.obj
+[5/10] Linking C static library esp-idf/main/libmain.a
+[6/10] Generating ld/sections.ld
+[7/10] Linking CXX executable 008_spi-rx.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.9.dev6
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/008_spi-rx.bin
+[9/10] cd /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/esp-idf/esptool_py && /home/lenovo/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/lenovo/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/partition_table/partition-table.bin /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/008_spi-rx.bin
+008_spi-rx.bin binary size 0x30cd0 bytes. Smallest app partition is 0x100000 bytes. 0xcf330 bytes (81%) free.
+[9/10] cd /home/lenovo/esp/esp-idf/components/esptool_py && /opt/st/stm32cubeclt_1.20.0/CMake/bin/cmake -D IDF_PATH=/home/lenovo/esp/esp-idf -D "SERIAL_TOOL=/home/lenovo/.espressif/python_env/idf5.5_py3.12_env/bin/python;;/home/lenovo/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build -P /home/lenovo/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 008_spi-rx.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.9.dev6
+Serial port /dev/ttyUSB0
+Connecting......
+Chip is ESP32-PICO-V3-02 (revision v3.0)
+Features: WiFi, BT, Dual Core, 240MHz, Embedded Flash, Embedded PSRAM, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: ac:0b:fb:6c:7b:7c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00040fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 26192 bytes to 16511...
+Writing at 0x00001000... (50 %)
+Writing at 0x000075a3... (100 %)
+Wrote 26192 bytes (16511 compressed) at 0x00001000 in 0.9 seconds (effective 243.3 kbit/s)...
+Hash of data verified.
+Compressed 199888 bytes to 108023...
+Writing at 0x00010000... (14 %)
+Writing at 0x0001ccc3... (28 %)
+Writing at 0x00022a3b... (42 %)
+Writing at 0x00028b1b... (57 %)
+Writing at 0x0002f200... (71 %)
+Writing at 0x00036f2a... (85 %)
+Writing at 0x0003d18b... (100 %)
+Wrote 199888 bytes (108023 compressed) at 0x00010000 in 2.6 seconds (effective 626.2 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 328.6 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

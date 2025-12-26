@@ -1,0 +1,2 @@
+source /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/bootloader/gdbinit/symbols
+source /home/lenovo/Documents/embedded-systems-toolkit/esp32/008_spi-rx/build/bootloader/gdbinit/connect

@@ -12,7 +12,7 @@ void delay(void){
 	for(int i=0; i<500000; i++);
 }
 
-int main(){
+void gpio_init(){
 	GPIO_Handle_t GpioLed;
 	GpioLed.pGPIOx = GPIOA;
 	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_5;
@@ -24,6 +24,11 @@ int main(){
 	GPIO_PeriClockControl(GPIOA, ENABLE);
 
 	GPIO_Init(&GpioLed);
+}
+
+int main(){
+
+	gpio_init();
 
 	while(1){
 		GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_5);

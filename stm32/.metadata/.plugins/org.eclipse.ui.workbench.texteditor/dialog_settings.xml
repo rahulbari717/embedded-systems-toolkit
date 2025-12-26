@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="address"/>
 		<item value="begin 3"/>
 		<item value="UASRT2"/>
 		<item value="USART2_BASE"/>
@@ -17,6 +18,9 @@
 		<item value="Init"/>
 		<item value="Syscfg_"/>
 		<item value="SPI"/>
-		<item value="struct"/>
 	</list>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="409"/>
+		<item key="DIALOG_Y_ORIGIN" value="216"/>
+	</section>
 </section>

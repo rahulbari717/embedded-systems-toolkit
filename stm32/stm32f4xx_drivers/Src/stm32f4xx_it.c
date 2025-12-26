@@ -28,20 +28,12 @@ void GPIO_ClearEXTIPendingBit(uint8_t PinNumber)
     }
 }
 
-
-void EXTI15_10_IRQHandler(void) {
-    
-    
-    
-    // ... rest of your DMA-triggering logic ...
-}
-
 // IRQ Handler for EXTI15_10 (handles PC13)
 void EXTI15_10_IRQHandler(void){
-	delay(); // Simple debounce
-	GPIO_IRQHandling(GPIO_PIN_NO_13); // Clear the pending bit
+	// delay(); // Simple debounce
+	// GPIO_IRQHandling(GPIO_PIN_NO_13); // Clear the pending bit
     // Clear the EXTI pending bit for PC13 (Pin 13)
-    GPIO_ClearEXTIPendingBit(GPIO_PIN_NO_13); 
+    // GPIO_ClearEXTIPendingBit(GPIO_PIN_NO_13);
 	// GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_5); // Toggle LED
 }
 

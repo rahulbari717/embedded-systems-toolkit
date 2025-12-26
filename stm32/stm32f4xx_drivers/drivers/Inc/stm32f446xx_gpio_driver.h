@@ -68,27 +68,6 @@
 #define GPIO_PIN_NO_15          15
 
 /*
- * @GPIO_PIN_ALT_FUN
- * GPIO pin alternate function modes
- */
-#define GPIO_AF0                0       /* Alternate function 0 */
-#define GPIO_AF1                1       /* Alternate function 1 */
-#define GPIO_AF2                2       /* Alternate function 2 */
-#define GPIO_AF3                3       /* Alternate function 3 */
-#define GPIO_AF4                4       /* Alternate function 4 */
-#define GPIO_AF5                5       /* Alternate function 5 */
-#define GPIO_AF6                6       /* Alternate function 6 */
-#define GPIO_AF7                7       /* Alternate function 7 */
-#define GPIO_AF8                8       /* Alternate function 8 */
-#define GPIO_AF9                9       /* Alternate function 9 */
-#define GPIO_AF10               10      /* Alternate function 10 */
-#define GPIO_AF11               11      /* Alternate function 11 */
-#define GPIO_AF12               12      /* Alternate function 12 */
-#define GPIO_AF13               13      /* Alternate function 13 */
-#define GPIO_AF14               14      /* Alternate function 14 */
-#define GPIO_AF15               15      /* Alternate function 15 */
-
-/*
  * Configuration structure for a GPIO pin
  */
 typedef struct

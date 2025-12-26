@@ -1,7 +1,7 @@
 /*
  * 005_spi_txonly_esp32rx.c
  *
- *  Created on: Nov 26, 2025
+ *  Created on: Dec 26, 2025
  *      Author: Rahul B.
  */
 
@@ -31,28 +31,29 @@ void delay(void){
 void SPI2_GPIOInits(void)
 {
     GPIO_Handle_t SPIPins;
+    memset(&SPIPins, 0, sizeof(SPIPins));
 
     // Configure common settings for all SPI pins
     SPIPins.pGPIOx = GPIOB;
     SPIPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
-    SPIPins.GPIO_PinConfig.GPIO_PinAltFunMode = 5;  // AF5 for SPI2
+    SPIPins.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_AF5_SPI;  // AF5 for SPI2
     SPIPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
     SPIPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
     SPIPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
 
-    // SCLK (PB13)
+    // SCLK (PB13) - Input for slave
     SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
     GPIO_Init(&SPIPins);
 
-    // MOSI (PB15)
+    // MOSI (PB15) - Input for slave
     SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15;
     GPIO_Init(&SPIPins);
 
-    // MISO (PB14)
-//    SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14;
-//    GPIO_Init(&SPIPins);
+    // MISO (PB14) - Output for slave
+    SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14;
+    GPIO_Init(&SPIPins);
 
-    // NSS (PB12)
+    // NSS (PB12) - Input for slave
     SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
     GPIO_Init(&SPIPins);
 }
@@ -101,7 +102,7 @@ void GPIO_ButtonInit(void){
 
 int main(void)
 {
-    char user_data[] = "Hello World";
+    char user_data[] = "Hello Rahul, how are you ? We are testing stm32 and esp32 spi communication";
 
     GPIO_ButtonInit();
     // Initialize the GPIO pins to behave as SPI2 pins

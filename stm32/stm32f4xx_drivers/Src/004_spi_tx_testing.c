@@ -27,11 +27,12 @@
 void SPI2_GPIOInits(void)
 {
     GPIO_Handle_t SPIPins;
+    memset(&SPIPins, 0, sizeof(SPIPins));
 
     // Configure common settings for all SPI pins
     SPIPins.pGPIOx = GPIOB;
     SPIPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
-    SPIPins.GPIO_PinConfig.GPIO_PinAltFunMode = 5;  // AF5 for SPI2
+    SPIPins.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_AF5_SPI;  // AF5 for SPI2
     SPIPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
     SPIPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
     SPIPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
@@ -45,12 +46,10 @@ void SPI2_GPIOInits(void)
     GPIO_Init(&SPIPins);
 
     // MISO (PB14)
-//    SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14;
-//    GPIO_Init(&SPIPins);
-
+    // SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14;
     // NSS (PB12)
-    SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
-    GPIO_Init(&SPIPins);
+    // SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
+
 }
 
 /*********************************************************************
@@ -67,11 +66,12 @@ void SPI2_GPIOInits(void)
 void SPI2_Inits(void)
 {
     SPI_Handle_t SPI2handle;
+    memset(&SPI2handle, 0, sizeof(SPI2handle));
 
     SPI2handle.pSPIx = SPI2;
     SPI2handle.SPIConfig.SPI_BusConfig = SPI_BUS_CONFIG_FD;         // Full duplex
     SPI2handle.SPIConfig.SPI_DeviceMode = SPI_DEVICE_MODE_MASTER;   // Master mode
-    SPI2handle.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV2;       // SCLK = APB1/2 (8MHz if APB1=16MHz)
+    SPI2handle.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8;       // SCLK = APB1/2 (8MHz if APB1=16MHz)
     SPI2handle.SPIConfig.SPI_DFF = SPI_DFF_8BIT;                    // 8-bit data frame
     SPI2handle.SPIConfig.SPI_CPOL = SPI_CPOL_LOW;                   // Clock polarity low
     SPI2handle.SPIConfig.SPI_CPHA = SPI_CPHA_LOW;                   // Clock phase low (first edge)
@@ -82,7 +82,7 @@ void SPI2_Inits(void)
 
 int main(void)
 {
-    char user_data[] = "Hello World";
+    char user_data[] = "Hello Rahul\n";
 
     // Initialize the GPIO pins to behave as SPI2 pins
     SPI2_GPIOInits();
@@ -109,3 +109,8 @@ int main(void)
 
     return 0;
 }
+
+
+
+
+

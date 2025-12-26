@@ -5,18 +5,14 @@
  *      Author: Rahul B.
  */
 
-
 #include <stm32f446xx.h>
 #include <string.h>
-
-#define LOW 			DISABLE
-#define BTN_PRESSED 	LOW
 
 void delay(void){
 	for(int i=0; i<500000/2; i++);
 }
 
-int main(){
+void init(void){
 	GPIO_Handle_t GpioLed, GpioButton;
 	memset(&GpioButton, 0, sizeof(GpioButton));
 	memset(&GpioLed, 0, sizeof(GpioLed));
@@ -43,13 +39,11 @@ int main(){
 	// Configure IRQ priority and enable interrupt
 	GPIO_IRQPriorityConfig(EXTI15_10_IRQn, NVIC_IRQ_PRI15);
 	GPIO_IRQInterruptConfig(EXTI15_10_IRQn, ENABLE);
+}
 
-//	while(1){
-//		if(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == BTN_PRESSED){
-//			delay();
-//			GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_5);
-//		}
-//	}
+int main(){
+	init();
+
 
 	return 0;
 }

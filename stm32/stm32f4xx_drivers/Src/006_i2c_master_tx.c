@@ -27,7 +27,7 @@ void I2C1_GPIOInits(void)
 
     I2CPins.pGPIOx = GPIOB;
     I2CPins.GPIO_PinConfig.GPIO_PinMode       = GPIO_MODE_ALTFN;
-    I2CPins.GPIO_PinConfig.GPIO_PinAltFunMode = 4;                  // AF4 = I2C
+    I2CPins.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_AF4_I2C;       // AF4 = I2C
     I2CPins.GPIO_PinConfig.GPIO_PinOPType     = GPIO_OP_TYPE_OD;    // Open Drain
     I2CPins.GPIO_PinConfig.GPIO_PinPuPdControl= GPIO_PIN_PU;        // Pull-up for I2C lines
     I2CPins.GPIO_PinConfig.GPIO_PinSpeed      = GPIO_SPEED_FAST;
